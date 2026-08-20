@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       skills_tag: 'Stack Tecnológico',
       skills_title: 'Habilidades & Herramientas',
-      skills_sub: 'Pasa el cursor sobre cada tecnología para explorar el efecto visual interactivo.',
       cat_backend: 'Backend & Runtime',
       cat_db: 'Gestión de Bases de Datos',
       cat_lang: 'Lenguaje de Programación',
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       p3_title: 'TaskNote CI/CD Pipeline',
       p3_desc: 'Aplicación de gestión de notas y tareas integrada con un flujo automatizado de CI/CD mediante GitHub Actions, permitiendo pruebas automáticas y despliegue directo sin intervención manual en GitHub Pages.',
       
-      demo_box_title: '⚡ Demo en Vivo (Prueba de TaskNote)',
+      demo_box_title: 'Demo en Vivo (Prueba de TaskNote)',
       btn_add: 'Agregar',
       btn_details: 'Ver Detalles Arquitectónicos',
       
@@ -108,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       skills_tag: 'Tech Stack',
       skills_title: 'Skills & Tools',
-      skills_sub: 'Hover over each tech card to explore the eye-catching glow and tilt effect.',
       cat_backend: 'Backend & Runtime',
       cat_db: 'Database Management',
       cat_lang: 'Programming Language',
@@ -139,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       p3_title: 'TaskNote CI/CD Pipeline',
       p3_desc: 'Task & note management application integrated with automated CI/CD workflow via GitHub Actions, enabling automated testing and zero-touch static deployment on GitHub Pages.',
       
-      demo_box_title: '⚡ Live Interactive Demo (TaskNote Test)',
+      demo_box_title: 'Live Interactive Demo (TaskNote Test)',
       btn_add: 'Add Task',
       btn_details: 'View Architectural Details',
       

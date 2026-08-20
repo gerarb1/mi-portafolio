@@ -386,7 +386,14 @@ body {
 }
 
 .badge-icon {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  background: var(--bg-card-subtle);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
 }
 
 .badge-text strong {
@@ -491,9 +498,22 @@ body {
   transform: translateY(-2px);
 }
 
-.highlight-icon {
-  font-size: 1.8rem;
-  line-height: 1;
+.highlight-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.hi-svg {
+  width: 22px;
+  height: 22px;
 }
 
 .highlight-item h4 {
@@ -797,48 +817,6 @@ body {
   margin-top: auto;
 }
 
-/* Feedback Section */
-.feedback-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.feedback-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.feedback-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-}
-
-.feedback-card.highlight-fb {
-  border-color: var(--accent);
-  background: linear-gradient(to bottom right, var(--bg-card), var(--accent-light));
-}
-
-.fb-icon {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-
-.feedback-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.feedback-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
 /* Contact Section */
 .contact-card {
   background: var(--bg-card);
@@ -886,8 +864,22 @@ body {
   gap: 14px;
 }
 
-.ci-icon {
-  font-size: 1.8rem;
+.contact-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.ci-svg {
+  width: 20px;
+  height: 20px;
 }
 
 .ci-link {
