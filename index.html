@@ -1,41 +1,540 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerardo Burgos | Backend Developer & Computer Systems</title>
+  <meta name="description" content="Portafolio profesional de Gerardo Burgos, estudiante de último año de sistemas informáticos enfocado en desarrollo backend, bases de datos SQL y desarrollo web." />
+  
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <header class="hero">
-        <h1>Gerardo Burgos</h1>
-        <p class="subtitle">Estudiante de Informática / Desarrollador de Software</p>
-    </header>
-    <section class="about">
-        <h2>Sobre mí</h2>
-        <p>Apasionado por el desarrollo full stack y la optimización de sistemas.</p>
-    </section>
-    <section class="skills">
-        <h2>Habilidades</h2>
-        <ul class="skill-list">
-            <li>HTML / CSS</li>
-            <li>JavaScript / TypeScript</li>
-            <li>Node.js / Express</li>
-            <li>Git / GitHub</li>
-        </ul>
-    </section>
-    <section class="projects">
-        <h2>Proyectos</h2>
-        <div class="project-card">
-            <h3>Alta La Estancia - ERP SaaS</h3>
-            <p>Sistema de gestión y analítica de datos para producción y control de inventarios.</p>
-        </div>
-    </section>
-    <footer>
-        <p>Hecho por Gerardo Burgos - 2026</p>
-    </footer>
-</body>
+  <!-- Header / Navigation -->
+  <header class="navbar-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="brand-accent">&lt;</span>GB<span class="brand-accent"> /&gt;</span>
+      </a>
 
+      <nav class="nav-links">
+        <a href="#about" data-i18n="nav_about">Sobre Mí</a>
+        <a href="#skills" data-i18n="nav_skills">Habilidades</a>
+        <a href="#projects" data-i18n="nav_projects">Proyectos</a>
+        <a href="#feedback" data-i18n="nav_feedback">Sugerencias</a>
+        <a href="#contact" data-i18n="nav_contact">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <button id="lang-toggle" class="btn-control" title="Cambiar idioma / Switch language" aria-label="Cambiar idioma">
+          <span id="lang-label">EN</span>
+        </button>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button id="theme-toggle" class="btn-control" title="Cambiar tema / Toggle theme" aria-label="Cambiar tema">
+          <svg id="theme-icon-sun" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg id="theme-icon-moon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-pulse"></span>
+            <span data-i18n="hero_status">Estudiante de Último Año • Disponible para Oportunidades</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span data-i18n="hero_title_prefix">Hola, soy</span>
+            <span class="text-gradient">Gerardo Burgos</span>
+          </h1>
+
+          <p class="hero-subtitle" data-i18n="hero_subtitle">
+            Estudiante de 25 años en el último año de <strong>Sistemas Informáticos</strong>. Apasionado por construir software eficiente que resuelva problemas reales del entorno, enfocado en el desarrollo backend, arquitectura web y gestión de bases de datos SQL.
+          </p>
+
+          <div class="hero-actions">
+            <!-- Mail Contact Link -->
+            <a href="mailto:gerardoburgos1232@gmail.com" class="btn btn-primary" title="Enviar un correo electrónico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span data-i18n="btn_email">Enviar Correo</span>
+            </a>
+
+            <!-- Copy Email Button -->
+            <button id="copy-email-btn" class="btn btn-secondary" title="Copiar gerardoburgos1232@gmail.com al portapapeles">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <span id="copy-btn-text" data-i18n="btn_copy_email">Copiar Email</span>
+            </button>
+
+            <!-- GitHub Profile Link -->
+            <a href="https://github.com/gerarb1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" title="Ver perfil en GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              <span>GitHub (gerarb1)</span>
+            </a>
+          </div>
+
+          <div class="tech-pills">
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">SQL & Databases</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">React & Astro</span>
+            <span class="tech-pill">GitHub CI/CD</span>
+          </div>
+        </div>
+
+        <!-- Avatar Visual Container -->
+        <div class="hero-visual">
+          <div class="avatar-card">
+            <div class="avatar-glow"></div>
+            <img src="assets/avatar.jpg" alt="Gerardo Burgos Avatar" class="avatar-img" />
+            <div class="avatar-badge">
+              <span class="badge-icon">⚡</span>
+              <div class="badge-text">
+                <strong data-i18n="avatar_badge_title">Backend & SQL Focus</strong>
+                <small data-i18n="avatar_badge_sub">25 Años • Sistemas Informáticos</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="about_tag">Conóceme</span>
+          <h2 class="section-title" data-i18n="about_title">Sobre Mí</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card main-about">
+            <h3 data-i18n="about_heading">Estudiante de Sistemas con visión orientada a soluciones</h3>
+            <p data-i18n="about_p1">
+              Tengo 25 años y me encuentro cursando el último año de la carrera de <strong>Sistemas Informáticos</strong>. Mi verdadera motivación radica en diseñar y construir aplicaciones de software que transformen problemas complejos en herramientas útiles y eficaces.
+            </p>
+            <p data-i18n="about_p2">
+              Mi enfoque actual está fuertemente orientado al <strong>desarrollo web backend y a la gestión de bases de datos relacionales con SQL</strong>. Mantengo una mentalidad de aprendizaje continuo, buscando constantemente profundizar en arquitectura de software, rendimiento de consultas, APIs RESTful y mejores prácticas de entrega.
+            </p>
+          </div>
+
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">🗄️</div>
+              <div>
+                <h4 data-i18n="hl1_title">Bases de Datos & Backend SQL</h4>
+                <p data-i18n="hl1_desc">Diseño de modelos relacionales, consultas estructuradas, integridad de datos y lógica de servidor en Node.js.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="highlight-icon">🚀</div>
+              <div>
+                <h4 data-i18n="hl2_title">Software con Impacto Real</h4>
+                <p data-i18n="hl2_desc">Desarrollo de proyectos funcionales como ERPs empresariales y aplicaciones móviles orientadas a resolver necesidades operativas.</p>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <div class="highlight-icon">📚</div>
+              <div>
+                <h4 data-i18n="hl3_title">Aprendizaje Continuo</h4>
+                <p data-i18n="hl3_desc">Adaptabilidad constante a nuevas tecnologías, integrando TypeScript, Astro, React y metodologías CI/CD modernas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section with Eye-Catching Hover Icons -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="skills_tag">Stack Tecnológico</span>
+          <h2 class="section-title" data-i18n="skills_title">Habilidades & Herramientas</h2>
+          <p class="section-sub" data-i18n="skills_sub">Pasa el cursor sobre cada tecnología para explorar el efecto visual interactivo.</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card: Node.js -->
+          <div class="skill-card node" data-tech="Node.js">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="skill-name">Node.js</h3>
+            <span class="skill-category" data-i18n="cat_backend">Backend & Runtime</span>
+            <p class="skill-desc" data-i18n="desc_node">Creación de servidores web, APIs RESTful, middlewares y procesamiento asíncrono.</p>
+          </div>
+
+          <!-- Skill Card: SQL & Databases -->
+          <div class="skill-card sql" data-tech="SQL">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="skill-name">SQL Databases</h3>
+            <span class="skill-category" data-i18n="cat_db">Gestión de Bases de Datos</span>
+            <p class="skill-desc" data-i18n="desc_sql">Modelado de tablas relacionales, consultas complejas, índices y optimización de datos.</p>
+          </div>
+
+          <!-- Skill Card: TypeScript -->
+          <div class="skill-card ts" data-tech="TypeScript">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="skill-name">TypeScript</h3>
+            <span class="skill-category" data-i18n="cat_lang">Lenguaje Tipado</span>
+            <p class="skill-desc" data-i18n="desc_ts">Desarrollo seguro con tipado estático, interfaces robustas y menor margen de error.</p>
+          </div>
+
+          <!-- Skill Card: JavaScript -->
+          <div class="skill-card js" data-tech="JavaScript">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H9v-2h6v2zm3-4H6V8h12v6z"/>
+              </svg>
+            </div>
+            <h3 class="skill-name">JavaScript (ES6+)</h3>
+            <span class="skill-category" data-i18n="cat_lang">Lenguaje Base</span>
+            <p class="skill-desc" data-i18n="desc_js">Programación asíncrona, promesas, manipulación eficiente del DOM y lógica avanzada.</p>
+          </div>
+
+          <!-- Skill Card: GitHub -->
+          <div class="skill-card github" data-tech="GitHub">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+              </svg>
+            </div>
+            <h3 class="skill-name">GitHub & Git</h3>
+            <span class="skill-category" data-i18n="cat_devops">Control de Versiones & CI/CD</span>
+            <p class="skill-desc" data-i18n="desc_github">Flujos de trabajo colaborativo, automatización de integraciones con GitHub Actions.</p>
+          </div>
+
+          <!-- Skill Card: React -->
+          <div class="skill-card react" data-tech="React">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="2"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+              </svg>
+            </div>
+            <h3 class="skill-name">React</h3>
+            <span class="skill-category" data-i18n="cat_frontend">Frontend UI</span>
+            <p class="skill-desc" data-i18n="desc_react">Arquitectura basada en componentes, hooks interactivos y estado reactivo.</p>
+          </div>
+
+          <!-- Skill Card: Astro -->
+          <div class="skill-card astro" data-tech="Astro">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="skill-name">Astro</h3>
+            <span class="skill-category" data-i18n="cat_frontend">Framework Web</span>
+            <p class="skill-desc" data-i18n="desc_astro">Sitios estáticos ultra veloces con arquitectura de islas de componentes.</p>
+          </div>
+
+          <!-- Skill Card: Tailwind CSS -->
+          <div class="skill-card tailwind" data-tech="Tailwind CSS">
+            <div class="skill-icon-wrapper">
+              <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+              </svg>
+            </div>
+            <h3 class="skill-name">Tailwind CSS</h3>
+            <span class="skill-category" data-i18n="cat_styling">Diseño & Estilos</span>
+            <p class="skill-desc" data-i18n="desc_tailwind">Estilizado rápido utility-first para interfaces modernas y responsivas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="projects_tag">Portafolio</span>
+          <h2 class="section-title" data-i18n="projects_title">Proyectos Destacados</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: ERP Avícola -->
+          <article class="project-card">
+            <div class="project-image-container">
+              <img src="assets/erp_avicola.jpg" alt="ERP Avícola Dashboard" class="project-image" />
+              <div class="project-overlay">
+                <span class="project-category-badge" data-i18n="p1_badge">Enterprise Backend & SQL</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">SQL DB</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">REST API</span>
+              </div>
+              <h3 class="project-title" data-i18n="p1_title">ERP Avícola</h3>
+              <p class="project-desc" data-i18n="p1_desc">
+                Sistema de gestión empresarial integral desarrollado para optimizar el control de producción, inventarios, trazabilidad avícola, costos operativos y generación de reportes estratégicos mediante backend Node.js y estructura de base de datos SQL.
+              </p>
+              <div class="project-footer">
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-modal="modal-erp" data-i18n="btn_details">Ver Detalles Arquitectónicos</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Chocolates Para Ti Mobile App -->
+          <article class="project-card">
+            <div class="project-image-container">
+              <img src="assets/chocolates_app.jpg" alt="Chocolates Para Ti Mobile App" class="project-image" />
+              <div class="project-overlay">
+                <span class="project-category-badge" data-i18n="p2_badge">Mobile & Frontend API</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Node.js API</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <h3 class="project-title" data-i18n="p2_title">Chocolates Para Ti - Mobile App</h3>
+              <p class="project-desc" data-i18n="p2_desc">
+                Aplicación móvil moderna orientada a la experiencia del usuario para la marca "Chocolates Para Ti". Incluye catálogo de productos, carrito de compras, pedidos interactivos y sincronización fluida con servicios web backend.
+              </p>
+              <div class="project-footer">
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-modal="modal-chocolates" data-i18n="btn_details">Ver Detalles Arquitectónicos</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: TaskNote CI/CD Pipeline -->
+          <article class="project-card">
+            <div class="project-image-container">
+              <img src="assets/cicd_pipeline.jpg" alt="TaskNote CI/CD Pipeline" class="project-image" />
+              <div class="project-overlay">
+                <span class="project-category-badge" data-i18n="p3_badge">DevOps & Automation</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Automated Testing</span>
+              </div>
+              <h3 class="project-title" data-i18n="p3_title">TaskNote CI/CD Pipeline</h3>
+              <p class="project-desc" data-i18n="p3_desc">
+                Aplicación de gestión de notas y tareas integrada con un flujo automatizado de CI/CD mediante GitHub Actions, permitiendo pruebas automáticas y despliegue directo sin intervención manual en GitHub Pages.
+              </p>
+
+              <!-- Live Widget inside Project Card -->
+              <div class="tasknote-demo-box">
+                <h4 class="demo-box-title" data-i18n="demo_box_title">⚡ Demo en Vivo (Prueba de TaskNote)</h4>
+                <form id="task-form" class="task-form-inline">
+                  <input type="text" id="task-input" placeholder="Nueva tarea..." required />
+                  <button type="submit" class="btn btn-sm btn-primary" data-i18n="btn_add">Agregar</button>
+                </form>
+                <ul id="task-list" class="task-list-box"></ul>
+              </div>
+
+              <div class="project-footer">
+                <button class="btn btn-sm btn-secondary open-modal-btn" data-modal="modal-tasknote" data-i18n="btn_details">Ver Detalles Arquitectónicos</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback & Improvements Section -->
+    <section id="feedback" class="section feedback-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="fb_tag">Recomendaciones Profesionales</span>
+          <h2 class="section-title" data-i18n="fb_title">Feedback & Qué Agregar a Tu Portafolio</h2>
+          <p class="section-sub" data-i18n="fb_sub">Análisis técnico sobre cómo llevar tu perfil como Desarrollador Backend a un nivel competitivo internacional.</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="feedback-grid">
+          <div class="feedback-card">
+            <div class="fb-icon">📄</div>
+            <h3 data-i18n="fb1_title">1. Botón para Descargar CV (PDF)</h3>
+            <p data-i18n="fb1_desc">Incluye una versión descargable en PDF de tu Currículum Vitae (en español e inglés) directo en el Hero Section. Los reclutadores suelen preferir descargar el CV rápidamente tras ver tu portafolio.</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="fb-icon">🗄️</div>
+            <h3 data-i18n="fb2_title">2. Diagramas de Arquitectura SQL</h3>
+            <p data-i18n="fb2_desc">En la sección de tu proyecto <strong>ERP Avícola</strong>, agrega un esquema entidad-relación (ERD) o diagrama de la estructura de tablas SQL. Esto demuestra inmediatamente tu dominio real en diseño de bases de datos.</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="fb-icon">📊</div>
+            <h3 data-i18n="fb3_title">3. Widget de Commits / GitHub Stats</h3>
+            <p data-i18n="fb3_desc">Agrega una tarjeta interactiva con tus estadísticas de GitHub (repositorios, contribuciones, lenguajes más usados). Transmite transparencia y constancia en tu aprendizaje.</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="fb-icon">📬</div>
+            <h3 data-i18n="fb4_title">4. Formulario de Contacto Funcional</h3>
+            <p data-i18n="fb4_desc">Integra un servicio como Web3Forms o Formspree directamente en el formulario de la web para recibir mensajes instantáneos en tu email gerardoburgos1232@gmail.com sin abrir clientes externos.</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="fb-icon">⭐</div>
+            <h3 data-i18n="fb5_title">5. Recomendaciones Académicas / Testimonios</h3>
+            <p data-i18n="fb5_desc">Pide a 1 o 2 profesores universitarios o tutores de proyectos una breve reseña de tu dedicación y ética de trabajo para incluirla como elemento de prueba social (Social Proof).</p>
+          </div>
+
+          <div class="feedback-card highlight-fb">
+            <div class="fb-icon">🚀</div>
+            <h3 data-i18n="fb6_title">6. Certificaciones & Logros Universitarios</h3>
+            <p data-i18n="fb6_desc">Al estar en tu último año de carrera, destaca tus materias sobresalientes, proyectos finales, hackathones o certificaciones adicionales (Node.js, SQL, AWS/Docker básico).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-content">
+            <span class="section-tag" data-i18n="contact_tag">¿Hablamos?</span>
+            <h2 class="contact-title" data-i18n="contact_title">Construyamos algo genial juntos</h2>
+            <p class="contact-sub" data-i18n="contact_sub">
+              Estoy disponible para incorporarme a equipos de desarrollo backend, proyectos web o pasantías/puestos profesionales. ¡Escríbeme!
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="ci-icon">✉️</span>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:gerardoburgos1232@gmail.com" class="ci-link">gerardoburgos1232@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="ci-icon">🐙</span>
+                <div>
+                  <strong>GitHub</strong>
+                  <a href="https://github.com/gerarb1" target="_blank" rel="noopener noreferrer" class="ci-link">github.com/gerarb1</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="ci-icon">🎓</span>
+                <div>
+                  <strong data-i18n="ci_edu_title">Educación</strong>
+                  <span data-i18n="ci_edu_desc">Último año - Sistemas Informáticos (25 Años)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-buttons">
+              <a href="mailto:gerardoburgos1232@gmail.com" class="btn btn-primary" data-i18n="btn_send_email">Enviar Correo Electrónico</a>
+              <button id="copy-email-btn-2" class="btn btn-secondary" title="Copiar correo" data-i18n="btn_copy_email">Copiar Email</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 <strong>Gerardo Burgos</strong>. <span data-i18n="footer_rights">Todos los derechos reservados. Estudiante de Sistemas Informáticos.</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/gerarb1" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        <a href="mailto:gerardoburgos1232@gmail.com">Email Directo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals for Project Details -->
+  <!-- Modal ERP Avícola -->
+  <div id="modal-erp" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title">ERP Avícola — Detalles Arquitectónicos</h3>
+      <div class="modal-content-scroll">
+        <p><strong>Enfoque del Proyecto:</strong> Desarrollo de lógica de negocio en backend con Node.js y diseño de base de datos SQL para el control operacional de granjas avícolas.</p>
+        <h4>Aspectos Clave:</h4>
+        <ul>
+          <li><strong>Gestión de Inventarios & Alimento:</strong> Algoritmos de cálculo automático de insumos requeridos según la población de aves.</li>
+          <li><strong>Base de Datos Relacional SQL:</strong> Normalización de tablas para la trazabilidad de lotes, tasas de mortalidad, vacunación y peso medio.</li>
+          <li><strong>Reportes y Métricas:</strong> Consultas agregadas y vistas SQL para generación de gráficos de rendimiento económico y productivo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Chocolates App -->
+  <div id="modal-chocolates" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title">Chocolates Para Ti Mobile App — Detalles</h3>
+      <div class="modal-content-scroll">
+        <p><strong>Enfoque del Proyecto:</strong> Aplicación orientada a mejorar las ventas y la interacción del cliente final para la emblemática marca de chocolates.</p>
+        <h4>Aspectos Clave:</h4>
+        <ul>
+          <li><strong>Interfaz Ágil en React:</strong> Catálogo de productos interactivo ordenado por categorías, ofertas y momentos especiales.</li>
+          <li><strong>Carrito & Pedidos:</strong> Gestión del estado local del pedido y envío de orden hacia la API backend en Node.js.</li>
+          <li><strong>Diseño Adaptativo:</strong> Estilizado limpio con Tailwind CSS optimizado para pantallas táctiles de teléfonos inteligentes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal TaskNote CI/CD -->
+  <div id="modal-tasknote" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title">TaskNote CI/CD Pipeline — Detalles</h3>
+      <div class="modal-content-scroll">
+        <p><strong>Enfoque del Proyecto:</strong> Demostración práctica de automatización DevOps utilizando GitHub Actions para la integración y despliegue continuo.</p>
+        <h4>Aspectos Clave:</h4>
+        <ul>
+          <li><strong>Pruebas Automatizadas:</strong> Configuración del script `npm test` ejecutado automáticamente en cada push a la rama principal.</li>
+          <li><strong>GitHub Pages Deployment:</strong> Despliegue automático de artefactos estáticos sin necesidad de intervención manual.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toast-message">¡Correo copiado al portapapeles!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>

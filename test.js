@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 console.log('Verificando archivos del portafolio...');
-const archivos = ['index.html', 'style.css'];
+const archivos = ['index.html', 'styles.css', 'app.js'];
 
 archivos.forEach(archivo => {
     if (!fs.existsSync(archivo)) {
